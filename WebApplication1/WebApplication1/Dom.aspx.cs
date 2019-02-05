@@ -40,8 +40,20 @@ namespace WebApplication1
                 Label10.Text = "Powierzchnia dzialki: " + Convert.ToString(Dtt.Rows[0][12]);
                 Label11.Text = "Kontaktowa osoba: " + Convert.ToString(Dtt.Rows[0][6]);
                 Label12.Text = "Poczta elektroniczna: " + Convert.ToString(Dtt.Rows[0][7]);
-                Label13.Text =   Convert.ToString(Dtt.Rows[0][14]);
+                Label13.Text = "" +  Convert.ToString(Dtt.Rows[0][14]);
+
+                sda = new SqlDataAdapter("Select IMAGE_PATH from LISTING_IMG where LISTING_ID='"+Dtt.Rows[0][0]+"'",conn);
+                Dtt = new DataTable();
+                sda.Fill(Dtt);
+                DataList1.DataSource = Dtt;
+                DataList1.DataBind();
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session["Dom"] = null;
+            Response.Redirect("~/MainMenu.aspx");           
         }
     }
 }

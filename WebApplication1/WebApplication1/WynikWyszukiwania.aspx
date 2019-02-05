@@ -19,6 +19,25 @@
             <div class ="SeparatorNaglowka"></div>
             <div class="TrescStrony">
 
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+                <br />
+                
+                <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:TemplateField HeaderText ="Index">
+                                <ItemTemplate >
+                                    <asp:LinkButton ID="WybranyPracownik" Text=<%# Eval("HLCN") %> runat="server" CommandArgument='<%# Eval("LISTING_ID") %>' OnClick="WybranyPracownik_Click" /> 
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:BoundField DataField="HOUSE_PRICE" HeaderText="Cena" />
+                        <asp:BoundField DataField="BATHROOMS" HeaderText="Łazienki" />
+                        <asp:BoundField DataField="BEDROOMS" HeaderText="Sypialnie" />                            
+                    </Columns>                   
+                </asp:GridView>
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Wróć" OnClick="Button1_Click" />
+
             </div>
         </div>
     </form>

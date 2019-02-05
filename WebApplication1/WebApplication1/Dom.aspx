@@ -19,43 +19,72 @@
             <div class ="SeparatorNaglowka"></div>
             <div class="TrescStrony">
                 <div class="KontenerDomLabel2">
-                <asp:Label ID="Label1" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+                
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label1" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label7" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>
                 <br />
-                <div class="KontenerDomLabel2">
-                <asp:Label ID="Label2" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+
+                <div class="KontenerDomLabel2">                
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label2" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label8" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>
                 <br />
+
                 <div class="KontenerDomLabel2">
-                <asp:Label ID="Label3" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label3" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label9" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>
                 <br />
-                <div class="KontenerDomLabel2">
-                <asp:Label ID="Label4" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+
+                <div class="KontenerDomLabel2">                
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label4" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label10" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>
                 <br />
-                <div class="KontenerDomLabel2">
-                <asp:Label ID="Label5" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+
+                <div class="KontenerDomLabel2">               
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label5" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label11" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>
                 <br />
+
                 <div class="KontenerDomLabel2">
-                <asp:Label ID="Label6" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
-                <div class="DystansPionowy"></div>
+                <div class="DystansPionowy">
+                    <asp:Label ID="Label6" class="CentrowanieLewa" runat="server" Text="Label"></asp:Label>
+                </div>
                 <asp:Label ID="Label12" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
                 </div>    
                 <br />
+
                 <div class="KontenerDomLabel2">
-                    <asp:Label ID="Label13" class="CentrowaniePrawa" runat="server" Text="Label"></asp:Label>
+                    
+                    <asp:TextBox ID="Label13" runat="server" TextMode="MultiLine" Height="59px" Width="549px"></asp:TextBox>
+                </div>
+                <br />
+
+                <div>
+                    <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal">
+                        <ItemTemplate>
+                            
+                           <img src="<%#Eval("IMAGE_PATH") %>" height="100px" width="100px"/>
+                                    
+                        </ItemTemplate>
+                    </asp:DataList>
+                </div>
+                <br />
+                <div>
+                    <asp:Button ID="Button1" runat="server" Text="Wróć" OnClick="Button1_Click" />
                 </div>
             </div>
         </div>
