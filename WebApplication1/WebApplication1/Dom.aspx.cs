@@ -52,11 +52,11 @@ namespace WebApplication1
 
                         Label1.Text = "Cena: " + Convert.ToString(query.HOUSE_PRICE) + "zł";
                         Label2.Text = "Ilość sypialni: " + Convert.ToString(query.BEDROOMS);
-                        Label3.Text = "Adres: " + Convert.ToString(query.ADDRESS);
+                        Label3.Text = "Adres: " + Convert.ToString(query.HOME_LOCATION);
                         Label4.Text = "Powierzchnia budowy: " + Convert.ToString(query.SQUARE_FEET);
                         Label5.Text = "Garaz: " + Convert.ToString(query.GARAGE); ;
                         Label6.Text = "Telefon: " + Convert.ToString(query.PHONE_CONTACT); ;
-                        Label7.Text = "Okreg: " + Convert.ToString(query.HOME_LOCATION);
+                        Label7.Text = "Okreg: " + Convert.ToString(query.ADDRESS);
                         Label8.Text = "Ilosc lazienek: " + Convert.ToString(query.BATHROOMS);
                         Label9.Text = "Rok budowy: " + Convert.ToString(query.YEAR_BUILD);
                         Label10.Text = "Powierzchnia dzialki: " + Convert.ToString(query.LOT_SIZE);
@@ -68,9 +68,9 @@ namespace WebApplication1
 
 
 
-                sda = new SqlDataAdapter("Select * from LISTING where LISTING_ID ='"+IDlist+"'",conn);
-                DataTable Dtt = new DataTable();
-                sda.Fill(Dtt);
+                //sda = new SqlDataAdapter("Select * from LISTING where LISTING_ID ='"+IDlist+"'",conn);
+                //DataTable Dtt = new DataTable();
+                //sda.Fill(Dtt);
 
                 //NaglowekStronyDomu.InnerText = "Dom - " + Convert.ToString(Dtt.Rows[0][1]);
 
@@ -88,8 +88,8 @@ namespace WebApplication1
                 //Label12.Text = "Poczta elektroniczna: " + Convert.ToString(Dtt.Rows[0][7]);
                 //Label13.Text = "" +  Convert.ToString(Dtt.Rows[0][14]);
 
-                sda = new SqlDataAdapter("Select IMAGE_PATH from LISTING_IMG where LISTING_ID='"+Dtt.Rows[0][0]+"'",conn);
-                Dtt = new DataTable();
+                sda = new SqlDataAdapter("Select IMAGE_PATH from LISTING_IMG where LISTING_ID='"+ IDlist + "'",conn);
+                DataTable Dtt = new DataTable();
                 sda.Fill(Dtt);
                 DataList1.DataSource = Dtt;
                 DataList1.DataBind();
