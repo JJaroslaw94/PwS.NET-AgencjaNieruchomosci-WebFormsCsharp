@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaDanychModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LISTING">
+    <Key>
+      <PropertyRef Name="LISTING_ID" />
+    </Key>
+    <Property Name="LISTING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HLCN" Type="varchar" MaxLength="50" />
+    <Property Name="HOUSE_PRICE" Type="numeric" Precision="25" Scale="0" />
+    <Property Name="BATHROOMS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="BEDROOMS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="HOME_LOCATION" Type="varchar" MaxLength="50" />
+    <Property Name="CONTACT_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="E_MAIL_CONTACT" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE_CONTACT" Type="varchar" MaxLength="50" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+    <Property Name="SQUARE_FEET" Type="varchar" MaxLength="50" />
+    <Property Name="YEAR_BUILD" Type="datetime" />
+    <Property Name="LOT_SIZE" Type="varchar" MaxLength="50" />
+    <Property Name="GARAGE" Type="varchar" MaxLength="50" />
+    <Property Name="NOTES" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="LISTING_IMG">
+    <Key>
+      <PropertyRef Name="IMAGE_ID" />
+    </Key>
+    <Property Name="IMAGE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LISTING_ID" Type="int" />
+    <Property Name="IMAGE_PATH" Type="varchar" MaxLength="500" />
+    <Property Name="IMAGE_ALT" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_LISTING__RELATIONS_LISTING">
+    <End Role="LISTING" Type="Self.LISTING" Multiplicity="0..1" />
+    <End Role="LISTING_IMG" Type="Self.LISTING_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LISTING">
+        <PropertyRef Name="LISTING_ID" />
+      </Principal>
+      <Dependent Role="LISTING_IMG">
+        <PropertyRef Name="LISTING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BazaDanychModelStoreContainer">
+    <EntitySet Name="LISTING" EntityType="Self.LISTING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LISTING_IMG" EntityType="Self.LISTING_IMG" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LISTING__RELATIONS_LISTING" Association="Self.FK_LISTING__RELATIONS_LISTING">
+      <End Role="LISTING" EntitySet="LISTING" />
+      <End Role="LISTING_IMG" EntitySet="LISTING_IMG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

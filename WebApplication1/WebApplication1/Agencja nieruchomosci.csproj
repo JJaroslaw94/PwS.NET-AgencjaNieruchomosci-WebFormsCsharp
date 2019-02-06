@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -85,6 +93,16 @@
     <Content Include="IMG\Budynki\8.png" />
     <Content Include="IMG\Budynki\9.png" />
     <Content Include="MainMenu.aspx" />
+    <Content Include="ModelPosiadlosci.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPosiadlosci.edmx</DependentUpon>
+      <LastGenOutput>ModelPosiadlosci.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPosiadlosci.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPosiadlosci.edmx</DependentUpon>
+      <LastGenOutput>ModelPosiadlosci.cs</LastGenOutput>
+    </Content>
     <Content Include="Poszukiwanie.aspx" />
     <Content Include="Web.config" />
     <Content Include="WynikWyszukiwania.aspx" />
@@ -97,12 +115,33 @@
     <Compile Include="Dom.aspx.designer.cs">
       <DependentUpon>Dom.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LISTING.cs">
+      <DependentUpon>ModelPosiadlosci.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LISTING_IMG.cs">
+      <DependentUpon>ModelPosiadlosci.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.aspx.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MainMenu.aspx.designer.cs">
       <DependentUpon>MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPosiadlosci.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPosiadlosci.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPosiadlosci.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPosiadlosci.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPosiadlosci.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPosiadlosci.edmx</DependentUpon>
     </Compile>
     <Compile Include="Poszukiwanie.aspx.cs">
       <DependentUpon>Poszukiwanie.aspx</DependentUpon>
@@ -121,6 +160,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="ModelPosiadlosci.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPosiadlosci.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelPosiadlosci.edmx.diagram">
+      <DependentUpon>ModelPosiadlosci.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -128,6 +174,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BazaDanychModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LISTING">
+          <Key>
+            <PropertyRef Name="LISTING_ID" />
+          </Key>
+          <Property Name="LISTING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HLCN" Type="varchar" MaxLength="50" />
+          <Property Name="HOUSE_PRICE" Type="numeric" Precision="25" Scale="0" />
+          <Property Name="BATHROOMS" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="BEDROOMS" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="HOME_LOCATION" Type="varchar" MaxLength="50" />
+          <Property Name="CONTACT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="E_MAIL_CONTACT" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE_CONTACT" Type="varchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="SQUARE_FEET" Type="varchar" MaxLength="50" />
+          <Property Name="YEAR_BUILD" Type="datetime" />
+          <Property Name="LOT_SIZE" Type="varchar" MaxLength="50" />
+          <Property Name="GARAGE" Type="varchar" MaxLength="50" />
+          <Property Name="NOTES" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="LISTING_IMG">
+          <Key>
+            <PropertyRef Name="IMAGE_ID" />
+          </Key>
+          <Property Name="IMAGE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LISTING_ID" Type="int" />
+          <Property Name="IMAGE_PATH" Type="varchar" MaxLength="500" />
+          <Property Name="IMAGE_ALT" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_LISTING__RELATIONS_LISTING">
+          <End Role="LISTING" Type="Self.LISTING" Multiplicity="0..1" />
+          <End Role="LISTING_IMG" Type="Self.LISTING_IMG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LISTING">
+              <PropertyRef Name="LISTING_ID" />
+            </Principal>
+            <Dependent Role="LISTING_IMG">
+              <PropertyRef Name="LISTING_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BazaDanychModelStoreContainer">
+          <EntitySet Name="LISTING" EntityType="Self.LISTING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LISTING_IMG" EntityType="Self.LISTING_IMG" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LISTING__RELATIONS_LISTING" Association="Self.FK_LISTING__RELATIONS_LISTING">
+            <End Role="LISTING" EntitySet="LISTING" />
+            <End Role="LISTING_IMG" EntitySet="LISTING_IMG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BazaDanychModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LISTING">
+          <Key>
+            <PropertyRef Name="LISTING_ID" />
+          </Key>
+          <Property Name="LISTING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HLCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HOUSE_PRICE" Type="Decimal" Precision="25" Scale="0" />
+          <Property Name="BATHROOMS" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="BEDROOMS" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="HOME_LOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="E_MAIL_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SQUARE_FEET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YEAR_BUILD" Type="DateTime" Precision="3" />
+          <Property Name="LOT_SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GARAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOTES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LISTING_IMG" Relationship="Self.FK_LISTING__RELATIONS_LISTING" FromRole="LISTING" ToRole="LISTING_IMG" />
+        </EntityType>
+        <EntityType Name="LISTING_IMG">
+          <Key>
+            <PropertyRef Name="IMAGE_ID" />
+          </Key>
+          <Property Name="IMAGE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LISTING_ID" Type="Int32" />
+          <Property Name="IMAGE_PATH" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE_ALT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LISTING" Relationship="Self.FK_LISTING__RELATIONS_LISTING" FromRole="LISTING_IMG" ToRole="LISTING" />
+        </EntityType>
+        <Association Name="FK_LISTING__RELATIONS_LISTING">
+          <End Role="LISTING" Type="Self.LISTING" Multiplicity="0..1" />
+          <End Role="LISTING_IMG" Type="Self.LISTING_IMG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LISTING">
+              <PropertyRef Name="LISTING_ID" />
+            </Principal>
+            <Dependent Role="LISTING_IMG">
+              <PropertyRef Name="LISTING_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BazaDanychEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LISTING" EntityType="Self.LISTING" />
+          <EntitySet Name="LISTING_IMG" EntityType="Self.LISTING_IMG" />
+          <AssociationSet Name="FK_LISTING__RELATIONS_LISTING" Association="Self.FK_LISTING__RELATIONS_LISTING">
+            <End Role="LISTING" EntitySet="LISTING" />
+            <End Role="LISTING_IMG" EntitySet="LISTING_IMG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BazaDanychModelStoreContainer" CdmEntityContainer="BazaDanychEntities">
+          <EntitySetMapping Name="LISTING">
+            <EntityTypeMapping TypeName="BazaDanychModel.LISTING">
+              <MappingFragment StoreEntitySet="LISTING">
+                <ScalarProperty Name="LISTING_ID" ColumnName="LISTING_ID" />
+                <ScalarProperty Name="HLCN" ColumnName="HLCN" />
+                <ScalarProperty Name="HOUSE_PRICE" ColumnName="HOUSE_PRICE" />
+                <ScalarProperty Name="BATHROOMS" ColumnName="BATHROOMS" />
+                <ScalarProperty Name="BEDROOMS" ColumnName="BEDROOMS" />
+                <ScalarProperty Name="HOME_LOCATION" ColumnName="HOME_LOCATION" />
+                <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+                <ScalarProperty Name="E_MAIL_CONTACT" ColumnName="E_MAIL_CONTACT" />
+                <ScalarProperty Name="PHONE_CONTACT" ColumnName="PHONE_CONTACT" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="SQUARE_FEET" ColumnName="SQUARE_FEET" />
+                <ScalarProperty Name="YEAR_BUILD" ColumnName="YEAR_BUILD" />
+                <ScalarProperty Name="LOT_SIZE" ColumnName="LOT_SIZE" />
+                <ScalarProperty Name="GARAGE" ColumnName="GARAGE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LISTING_IMG">
+            <EntityTypeMapping TypeName="BazaDanychModel.LISTING_IMG">
+              <MappingFragment StoreEntitySet="LISTING_IMG">
+                <ScalarProperty Name="IMAGE_ID" ColumnName="IMAGE_ID" />
+                <ScalarProperty Name="LISTING_ID" ColumnName="LISTING_ID" />
+                <ScalarProperty Name="IMAGE_PATH" ColumnName="IMAGE_PATH" />
+                <ScalarProperty Name="IMAGE_ALT" ColumnName="IMAGE_ALT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

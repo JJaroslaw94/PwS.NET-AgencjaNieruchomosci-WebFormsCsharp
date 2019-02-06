@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BazaDanychModelStoreContainer" CdmEntityContainer="BazaDanychEntities">
+    <EntitySetMapping Name="LISTING">
+      <EntityTypeMapping TypeName="BazaDanychModel.LISTING">
+        <MappingFragment StoreEntitySet="LISTING">
+          <ScalarProperty Name="LISTING_ID" ColumnName="LISTING_ID" />
+          <ScalarProperty Name="HLCN" ColumnName="HLCN" />
+          <ScalarProperty Name="HOUSE_PRICE" ColumnName="HOUSE_PRICE" />
+          <ScalarProperty Name="BATHROOMS" ColumnName="BATHROOMS" />
+          <ScalarProperty Name="BEDROOMS" ColumnName="BEDROOMS" />
+          <ScalarProperty Name="HOME_LOCATION" ColumnName="HOME_LOCATION" />
+          <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+          <ScalarProperty Name="E_MAIL_CONTACT" ColumnName="E_MAIL_CONTACT" />
+          <ScalarProperty Name="PHONE_CONTACT" ColumnName="PHONE_CONTACT" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="SQUARE_FEET" ColumnName="SQUARE_FEET" />
+          <ScalarProperty Name="YEAR_BUILD" ColumnName="YEAR_BUILD" />
+          <ScalarProperty Name="LOT_SIZE" ColumnName="LOT_SIZE" />
+          <ScalarProperty Name="GARAGE" ColumnName="GARAGE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LISTING_IMG">
+      <EntityTypeMapping TypeName="BazaDanychModel.LISTING_IMG">
+        <MappingFragment StoreEntitySet="LISTING_IMG">
+          <ScalarProperty Name="IMAGE_ID" ColumnName="IMAGE_ID" />
+          <ScalarProperty Name="LISTING_ID" ColumnName="LISTING_ID" />
+          <ScalarProperty Name="IMAGE_PATH" ColumnName="IMAGE_PATH" />
+          <ScalarProperty Name="IMAGE_ALT" ColumnName="IMAGE_ALT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

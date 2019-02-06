@@ -54,3 +54,7 @@ D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebAppl
 D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\obj\Debug\Agencja nieruchomosci.csproj.CopyComplete
 D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\bin\EntityFramework.dll
+D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\bin\EntityFramework.xml
+D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml

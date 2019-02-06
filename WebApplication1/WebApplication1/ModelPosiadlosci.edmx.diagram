@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fec393e199d449b29b1ed9ff66d89197" Name="Diagram1">
+        <EntityTypeShape EntityType="BazaDanychModel.LISTING" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaDanychModel.LISTING_IMG" Width="1.5" PointX="3.875" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="BazaDanychModel.FK_LISTING__RELATIONS_LISTING" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

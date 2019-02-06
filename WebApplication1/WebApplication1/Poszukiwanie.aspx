@@ -25,15 +25,20 @@
                     <div class="DystansPionowy2">
                         Minimalna cena: 
                     </div>                    
-                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"></asp:DropDownList>
                 </div>
                 <br />
-
+                
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <div class="KontenerDomLabel2">
                     <div class="DystansPionowy2">
                         Maksymalna cena: 
                     </div>
-                    <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <br />
 
@@ -41,7 +46,11 @@
                     <div class="DystansPionowy2">
                     Łazienki: 
                         </div>
-                    <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <br />
 
@@ -49,7 +58,11 @@
                     <div class="DystansPionowy2">
                     Sypialnie: 
                         </div>
-                    <asp:DropDownList ID="DropDownList4" runat="server"></asp:DropDownList>
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DropDownList4" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <br /> 
 
@@ -57,7 +70,11 @@
                     <div class="DystansPionowy2">
                     Okręg: 
                         </div>
-                    <asp:DropDownList ID="DropDownList5" runat="server"></asp:DropDownList>
+                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DropDownList5" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <br />
                 <br />
@@ -68,8 +85,13 @@
                     <div class="DystansPionowy2">
                     Sortować po: 
                         </div>
-                    <asp:DropDownList ID="DropDownList6" runat="server"></asp:DropDownList>
+                    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                        <ContentTemplate>
+                            <asp:DropDownList ID="DropDownList6" runat="server" AutoPostBack="True"></asp:DropDownList>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
+                        
                 <br />
                 <div>
                     <asp:Button ID="ButtonPosz1" runat="server" Text="Wróć" OnClick="ButtonPosz1_Click" />

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BazaDanychModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LISTING">
+    <Key>
+      <PropertyRef Name="LISTING_ID" />
+    </Key>
+    <Property Name="LISTING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HLCN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOUSE_PRICE" Type="Decimal" Precision="25" Scale="0" />
+    <Property Name="BATHROOMS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="BEDROOMS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="HOME_LOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="E_MAIL_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE_CONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SQUARE_FEET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="YEAR_BUILD" Type="DateTime" Precision="3" />
+    <Property Name="LOT_SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GARAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOTES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LISTING_IMG" Relationship="Self.FK_LISTING__RELATIONS_LISTING" FromRole="LISTING" ToRole="LISTING_IMG" />
+  </EntityType>
+  <EntityType Name="LISTING_IMG">
+    <Key>
+      <PropertyRef Name="IMAGE_ID" />
+    </Key>
+    <Property Name="IMAGE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LISTING_ID" Type="Int32" />
+    <Property Name="IMAGE_PATH" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IMAGE_ALT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LISTING" Relationship="Self.FK_LISTING__RELATIONS_LISTING" FromRole="LISTING_IMG" ToRole="LISTING" />
+  </EntityType>
+  <Association Name="FK_LISTING__RELATIONS_LISTING">
+    <End Role="LISTING" Type="Self.LISTING" Multiplicity="0..1" />
+    <End Role="LISTING_IMG" Type="Self.LISTING_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LISTING">
+        <PropertyRef Name="LISTING_ID" />
+      </Principal>
+      <Dependent Role="LISTING_IMG">
+        <PropertyRef Name="LISTING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BazaDanychEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LISTING" EntityType="Self.LISTING" />
+    <EntitySet Name="LISTING_IMG" EntityType="Self.LISTING_IMG" />
+    <AssociationSet Name="FK_LISTING__RELATIONS_LISTING" Association="Self.FK_LISTING__RELATIONS_LISTING">
+      <End Role="LISTING" EntitySet="LISTING" />
+      <End Role="LISTING_IMG" EntitySet="LISTING_IMG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
