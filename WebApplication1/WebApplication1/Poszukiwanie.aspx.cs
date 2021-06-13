@@ -13,7 +13,7 @@ namespace WebApplication1
     {
 
         SqlDataAdapter sda;
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\App_Data\BazaDanych.mdf;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True;AttachDbFilename=|DataDirectory|\BazaDanych.mdf;Integrated Security=True");
         SqlCommand Sq;
 
         protected void Page_Load(object sender, EventArgs e)
