@@ -12,7 +12,7 @@ namespace WebApplication1
     public partial class WynikWyszukiwania : System.Web.UI.Page
     {
         SqlDataAdapter sda;
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\workspace\PwS.NET-AgencjaNieruchomosci-WebFormsCsharp\WebApplication1\WebApplication1\App_Data\BazaDanych.mdf;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True;AttachDbFilename=|DataDirectory|\BazaDanych.mdf;Integrated Security=True");
         SqlCommand Sq;
 
         String where;
